@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\AuthController;
+
 
 
 
@@ -23,13 +24,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
+//book details
+Route::get('/books/all', [BookController::class, 'allBooks'])->name('bookdetails.all');
+Route::get('/books/{id}/show', [BookController::class, 'show'])->name('bookdetails.show');
+Route::get('/books/{id}/buy', [BookController::class, 'buy'])->name('bookdetails.buy');
+Route::get('/books/{id}/borrow', [BookController::class, 'borrow'])->name('bookdetails.borrow');
 
 
 // Dashboard Route
@@ -43,4 +42,13 @@ Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('books.edi
 Route::put('/books/update/{id}', [BookController::class, 'update'])->name('books.update');  // Update book
 Route::delete('/books/delete/{id}', [BookController::class, 'destroy'])->name('books.destroy');  // Delete book
 
+
+// login
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

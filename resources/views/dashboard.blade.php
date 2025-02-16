@@ -1,12 +1,14 @@
+<div>
+<h1>Dashboard</h1>
+    <a href="{{ route('books.index') }}">Manage Books</a>
+
+</div>
+
 @extends('layout')
 
   
 
 @section('content')
-
-<h1>Dashboard</h1>
-    <a href="{{ route('books.index') }}">Manage Books</a>
-
 
 <div class="container">
 
