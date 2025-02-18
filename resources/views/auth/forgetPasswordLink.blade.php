@@ -14,15 +14,19 @@
 
               <div class="card">
 
-                  <div class="card-header">Login</div>
+                  <div class="card-header">Reset Password</div>
 
                   <div class="card-body">
 
   
 
-                      <form action="{{ route('login.post') }}" method="POST">
+                      <form action="{{ route('reset.password.post') }}" method="POST">
 
                           @csrf
+
+                          <input type="hidden" name="token" value="{{ $token }}">
+
+  
 
                           <div class="form-group row">
 
@@ -50,7 +54,7 @@
 
                               <div class="col-md-6">
 
-                                  <input type="password" id="password" class="form-control" name="password" required>
+                                  <input type="password" id="password" class="form-control" name="password" required autofocus>
 
                                   @if ($errors->has('password'))
 
@@ -66,17 +70,17 @@
 
                           <div class="form-group row">
 
-                              <div class="col-md-6 offset-md-4">
+                              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
 
-                                  <div class="checkbox">
+                              <div class="col-md-6">
 
-                                      <label>
+                                  <input type="password" id="password-confirm" class="form-control" name="password_confirmation" required autofocus>
 
-                                          <input type="checkbox" name="remember"> Remember Me
+                                  @if ($errors->has('password_confirmation'))
 
-                                      </label>
+                                      <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
 
-                                  </div>
+                                  @endif
 
                               </div>
 
@@ -84,31 +88,11 @@
 
   
 
-                          <div class="form-group row">
-
-                              <div class="col-md-6 offset-md-4">
-
-                                  <div class="checkbox">
-
-                                      <label>
-
-                                          <a href="{{ route('forget.password.get') }}">Reset Password</a>
-
-                                      </label>
-
-                                  </div>
-
-                              </div>
-
-                          </div>
-
-    
-
                           <div class="col-md-6 offset-md-4">
 
                               <button type="submit" class="btn btn-primary">
 
-                                  Login
+                                  Reset Password
 
                               </button>
 
