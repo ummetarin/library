@@ -64,18 +64,18 @@
     </div>
     <div class="flex flex-row items-center">
       <img class="w-[70px] h-[60px]" src="https://i.postimg.cc/8Ptf193V/pngtree-hand-drawn-cartoon-polygon-library-bookshelf-illustration-png-image-2190375-removebg-preview.png" alt="">
-      <h1 class="text-md font-bold">Library</h1>
+      <h1 class="text-md text-amber-900  font-bold">Digital Library</h1>
     </div>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li><a href="{{ route('bookdetails.all') }}">All Books</a></li>
-      <li><a>All Service</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="/">Home</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="{{ route('bookdetails.all') }}">All Books</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a>All Service</a></li>
     </ul>
   </div>
   <div class="navbar-end">
-  <a class="btn" href="{{ route('register') }}">Registration</a>
+  <a class="btn bg-[#D2B48C]" href="{{ route('register') }}">Registration</a>
   </div>
 </div>
 

@@ -63,3 +63,8 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+// purchase
+Route::get('/bookdetails/buy/{id}', [BookController::class, 'buy'])->name('bookdetails.buy');
+Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->name('bookdetails.purchase');
+
+

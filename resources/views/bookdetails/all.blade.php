@@ -34,9 +34,9 @@
 <body class="bg-gray-100">
 
 <!-- Banner Section -->
-<section class=" bg-[#D2B48C] py-20 text-center text-white">
-    <h1 class="text-5xl text-[#A0522D] font-bold">All Books</h1>
-    <p class="text-sm  mt-2 max-w-2xl text-[#B5653F] mx-auto">Explore a vast collection of books. Browse, buy, or borrow your favorite titles.</p>
+<section class=" bg-teal-700 py-20 text-center text-white">
+    <h1 class="text-5xl font-bold">All Books</h1>
+    <p class="text-sm  mt-2 max-w-2xl mx-auto">Explore a vast collection of books. Browse, buy, or borrow your favorite titles.</p>
 </section>
 
 <!-- Search and Books Section -->

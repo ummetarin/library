@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
-
+use Illuminate\Support\Facades\DB;
 
 class Bookcontroller extends Controller
 {
@@ -87,11 +87,7 @@ class Bookcontroller extends Controller
     return view('bookdetails.show', compact('book')); // Create 'show.blade.php' for details page
 }
 
-public function buy($id)
-{
-    $book = Book::findOrFail($id);
-    return view('bookdetails.buy', compact('book')); // Create 'buy.blade.php' for purchase
-}
+
 
 public function borrow($id)
 {
@@ -100,6 +96,31 @@ public function borrow($id)
 }
 
 
+
+public function buy($id) {
+    $book = Book::findOrFail($id);
+    return view('bookdetails.buy', compact('book'));
+}
+
+public function purchase(Request $request, $id) {
+    $request->validate([
+        'confirm' => 'required',
+        'payment_method' => 'required'
+    ]);
+
+    $book = Book::findOrFail($id);
+
+    // Store purchase in the database
+    DB::table('purchased_books')->insert([
+        'book_id' => $book->id,
+        'title' => $book->title,
+        'price' => $book->price,
+        'payment_method' => $request->payment_method,
+        'purchased_at' => now()
+    ]);
+
+    return redirect()->route('bookdetails.all')->with('success', 'Book purchased successfully!');
+}
 
    
 
