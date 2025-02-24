@@ -34,9 +34,9 @@
 <body class="bg-gray-100">
 
 <!-- Banner Section -->
-<section class=" bg-teal-700 py-20 text-center text-white">
+<section class="bg-[#D2B48C] py-20 text-center text-white">
     <h1 class="text-5xl font-bold">All Books</h1>
-    <p class="text-sm  mt-2 max-w-2xl mx-auto">Explore a vast collection of books. Browse, buy, or borrow your favorite titles.</p>
+    <p class="text-sm mt-2 max-w-2xl mx-auto">Explore a vast collection of books. Browse, buy, or borrow your favorite titles.</p>
 </section>
 
 <!-- Search and Books Section -->
@@ -53,7 +53,7 @@
                     </option>
                 @endforeach
             </select>
-            <button type="submit" class="px-4 py-2 bg-teal-700 hover:bg-teal-900 text-white rounded-lg">Search</button>
+            <button type="submit" class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white rounded-lg">Search</button>
         </form>
     </div>
 
@@ -67,14 +67,14 @@
                 <img src="{{ asset($book->image) }}" alt="{{ $book->title }}" 
                      class="w-full h-[280px] object-cover object-center rounded-t-lg">
                 <div class="p-4">
-                    <h2 class="text-xl font-semibold text-teal-700">{{ $book->title }}</h2>
+                    <h2 class="text-xl font-semibold text-[#D2B48C]">{{ $book->title }}</h2>
                     <p class="text-md text-gray-500">{{ $book->author }}</p>
                     <p class="text-md font-medium mt-2">Price: ${{ $book->price }}</p>
                     <div class="flex justify-between mt-4">
                         <a href="{{ route('bookdetails.show', $book->id) }}" 
-                           class="px-4 py-2 bg-teal-700 hover:bg-teal-900 text-white font-medium rounded-lg">Details</a>
+                           class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">Details</a>
                         <a href="{{ route('bookdetails.buy', $book->id) }}" 
-                           class="px-4 py-2 bg-green-600 hover:bg-green-800 text-white font-medium rounded-lg">Buy</a>
+                           class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">Buy</a>
                     </div>
                 </div>
             </div>

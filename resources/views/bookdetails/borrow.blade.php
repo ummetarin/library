@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Buy Book</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
+<!-- Banner Section -->
+<section class="bg-[#D2B48C] py-20 text-center text-white">
+    <h1 class="text-5xl font-bold">Buy Book</h1>
+    <p class="text-sm mt-2 max-w-2xl mx-auto">Purchase your favorite books easily and securely.</p>
+</section>
+
 <section class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-    <h1 class="text-3xl font-bold text-teal-700 mb-6">Buy Book</h1>
+    <h1 class="text-3xl font-bold text-[#D2B48C] mb-6">Buy Book</h1>
 
     <form action="{{ route('bookdetails.purchase', $book->id) }}" method="POST">
         @csrf
@@ -56,7 +68,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="px-6 py-2 bg-green-600 hover:bg-green-800 text-white rounded-lg">
+        <button type="submit" class="px-6 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white rounded-lg">
             Confirm and Borrow
         </button>
     </form>

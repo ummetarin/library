@@ -75,6 +75,7 @@
     </ul>
   </div>
   <div class="navbar-end">
+  <a class="btn bg-[#D2B48C]" href="{{ route('login') }}">Login</a>
   <a class="btn bg-[#D2B48C]" href="{{ route('register') }}">Registration</a>
   </div>
 </div>
