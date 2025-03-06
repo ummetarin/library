@@ -72,8 +72,9 @@ Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->
 
 
 ///uuserr
-
-
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::post('/users/make-admin/{id}', [UserController::class, 'makeAdmin'])->name('users.makeAdmin');
+Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
 
 
 // paypal

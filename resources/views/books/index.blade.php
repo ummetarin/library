@@ -27,13 +27,9 @@
                 <span>📚</span>
                 <span>Manage Books</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>📊</span>
-                <span>Statistics</span>
-            </a>
-            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>⚙️</span>
-                <span>Settings</span>
+            <a href="{{ route('users.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+                <span>👥</span>
+                <span>All Users</span>
             </a>
         </nav>
         <div class="mt-auto">
