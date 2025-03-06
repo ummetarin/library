@@ -95,7 +95,7 @@
                             <td class="py-3 px-3 font-medium text-gray-800">{{ $book->title }}</td>
                             <td class="py-3 px-3 text-gray-600">{{ $book->author }}</td>
                             <td class="py-3 px-3 text-gray-600">{{ $book->category }}</td>
-                            <td class="py-3 px-3 text-gray-600 font-semibold">${{ $book->price }}</td>
+                            <td class="py-3 px-3 text-gray-600 font-semibold"k>${{ $book->price }}</td>
                             <td class="py-3 px-3 text-gray-500">{{ $book->quantity }}</td>
                             <td class="py-3 px-3 flex justify-center space-x-2">
                                 <a href="{{ route('books.edit', $book->id) }}" 

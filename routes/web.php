@@ -5,6 +5,8 @@ use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PayPalController;
 
 
 
@@ -67,4 +69,19 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('/bookdetails/buy/{id}', [BookController::class, 'buy'])->name('bookdetails.buy');
 Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->name('bookdetails.purchase');
 
+
+
+///uuserr
+
+
+
+
+// paypal
+Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
+
+Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 

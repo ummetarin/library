@@ -17,19 +17,17 @@
 <div class="flex h-screen">
     <!-- Sidebar -->
     <aside class="w-64 bg-[#D2B48C] text-white flex flex-col p-5">
-        <h1 class="text-3xl font-bold mb-10">eProduct</h1>
+        <h1 class="text-3xl font-bold mb-10">Dashboard</h1>
         <nav class="flex-1 space-y-4">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>🏠</span>
+               
                 <span>Dashboard</span>
             </a>
             <a href="{{ route('books.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>📚</span>
                 <span>Manage Books</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>📊</span>
-                <span>Statistics</span>
+            <a  class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+                <span>All User</span>
             </a>
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
                 <span>⚙️</span>
@@ -46,10 +44,6 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-8">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-3xl font-bold">Dashboard</h2>
-        </div>
-
         <!-- Success Message -->
         @if (session('success'))
             <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-6">
