@@ -121,7 +121,11 @@ public function purchase(Request $request, $id) {
 
     return redirect()->route('bookdetails.all')->with('success', 'Book purchased successfully!');
 }
-
+public function soldBooks()
+{
+    $soldBooks = DB::table('purchased_books')->get();
+    return view('books.sold', compact('soldBooks'));
+}
    
 
 }

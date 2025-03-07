@@ -68,6 +68,8 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 // purchase
 Route::get('/bookdetails/buy/{id}', [BookController::class, 'buy'])->name('bookdetails.buy');
 Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->name('bookdetails.purchase');
+Route::get('/books/sold', [BookController::class, 'soldBooks'])->name('books.sold');
+
 
 
 
@@ -79,10 +81,7 @@ Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('us
 
 // paypal
 Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
-
 Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
-
 Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
-
 Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 

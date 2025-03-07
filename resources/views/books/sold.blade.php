@@ -59,10 +59,36 @@
         @endif
 
         <!-- Dashboard Content -->
+       
         <div class="bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
-            <p>You are Logged In</p>
-        </div>
+    <h3 class="text-2xl font-semibold mb-4 text-[#D2B48C]">All Sold Books</h3>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+            <thead class="bg-gradient-to-r from-[#D2B48C] to-[#b8956e] text-white text-sm">
+                <tr>
+                    <th class="py-3 px-3 text-left">#</th>
+                    <th class="py-3 px-3 text-left">Book Name</th>
+                    <th class="py-3 px-3 text-left">Price</th>
+                    <th class="py-3 px-3 text-left">Payment Method</th>
+                    <th class="py-3 px-3 text-left">Purchased At</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm divide-y divide-gray-300 bg-gray-50">
+                @foreach($soldBooks as $index => $book)
+                    <tr class="hover:bg-gray-100 transition">
+                        <td class="py-3 px-3 font-medium text-gray-800">{{ $index + 1 }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->title }}</td>
+                        <td class="py-3 px-3 text-gray-600">${{ $book->price }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->payment_method }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->purchased_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
     </main>
 </div>
 
