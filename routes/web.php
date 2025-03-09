@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\ServiceController;
 
 
 
@@ -68,7 +69,9 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 // purchase
 Route::get('/bookdetails/buy/{id}', [BookController::class, 'buy'])->name('bookdetails.buy');
 Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->name('bookdetails.purchase');
+Route::post('/books/borrow/{id}', [BookController::class, 'storeBorrow'])->name('bookdetails.storeBorrow');
 Route::get('/books/sold', [BookController::class, 'soldBooks'])->name('books.sold');
+Route::get('/books/borrows', [BookController::class, 'borrowsBooks'])->name('books.borrows');
 
 
 
@@ -85,3 +88,8 @@ Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal
 Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
 Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 
+// service
+
+
+Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');

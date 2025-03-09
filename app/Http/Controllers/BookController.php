@@ -89,13 +89,6 @@ class Bookcontroller extends Controller
 
 
 
-public function borrow($id)
-{
-    $book = Book::findOrFail($id);
-    return view('bookdetails.borrow', compact('book')); // Create 'borrow.blade.php' for borrowing
-}
-
-
 
 public function buy($id) {
     $book = Book::findOrFail($id);
@@ -121,10 +114,17 @@ public function purchase(Request $request, $id) {
 
     return redirect()->route('bookdetails.all')->with('success', 'Book purchased successfully!');
 }
+
+
 public function soldBooks()
 {
     $soldBooks = DB::table('purchased_books')->get();
     return view('books.sold', compact('soldBooks'));
+}
+public function borrowsBooks()
+{
+    $borrowsBooks = DB::table('borrowed_items')->get();
+    return view('books.borrows', compact('borrowsBooks'));
 }
    
 

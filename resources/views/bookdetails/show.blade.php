@@ -71,7 +71,6 @@
                 <!-- Buttons -->
                 <div class="flex flex-wrap gap-4 mt-4 md:mt-6">
                     <a href="{{ route('bookdetails.buy', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Buy Now</a>
-                    <a href="{{ route('bookdetails.borrow', $book->id) }}" class="button-style btn-borrow text-sm md:text-base">Borrow</a>
                     <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
                 </div>
             </div>

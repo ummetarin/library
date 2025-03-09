@@ -28,6 +28,11 @@
             <span>📖</span>
           <span>All Sold Books</span>
            </a>
+           <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+            <span>📖</span>
+          <span>All Borrow Book</span>
+           </a>
+
         </nav>
         <div class="mt-auto">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
