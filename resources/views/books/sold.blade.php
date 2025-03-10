@@ -35,6 +35,10 @@
             <span>📖</span>
           <span>All Sold Books</span>
            </a>
+           <a href="{{ route('services.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+</a>
 
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
                 <span>⚙️</span>

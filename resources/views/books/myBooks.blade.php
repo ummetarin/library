@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Dashboard</title>
+    <title>My Books</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -19,38 +19,15 @@
     <aside class="w-64 bg-[#D2B48C] text-white flex flex-col p-5">
         <h1 class="text-3xl font-bold mb-10">Dashboard</h1>
         <nav class="flex-1 space-y-4">
-            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-               
-                <span>Dashboard</span>
-            </a>
             <a href="{{ route('books.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
                 <span>📚</span>
                 <span>Manage Books</span>
             </a>
-            <a href="{{ route('users.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
-                <span>👥</span>
-                <span>All Users</span>
+            <a href="{{ route('books.myBooks') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+                <span>🛠️</span>
+                <span>My Books</span>
             </a>
-            <a href="{{ route('books.sold') }}" >
-            <span>📖</span>
-          <span>All Sold Books</span>
-           </a>
-
-    
-    <a href="{{ route('books.myBooks') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
-    <span>🛠️</span>
-    <span>My Books</span>
-</a>
-        
-
-        
         </nav>
-        <div class="mt-auto">
-            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>🚪</span>
-                <span>Logout</span>
-            </a>
-        </div>
     </aside>
 
     <!-- Main Content -->
@@ -62,10 +39,25 @@
             </div>
         @endif
 
-        <!-- Dashboard Content -->
+        <!-- My Books Content -->
         <div class="bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
-            <p>You are Logged In</p>
+            <h3 class="text-2xl font-semibold mb-4">My Books</h3>
+            
+            @if ($books->isEmpty())
+                <p>No books found.</p>
+            @else
+                <ul class="space-y-4">
+                    @foreach ($books as $book)
+                        <li class="p-4 border-b">
+                            <h4 class="text-xl font-semibold">{{ $book->title }}</h4>
+                            <p>Author: {{ $book->author }}</p>
+                            <p>Price: ${{ $book->price }}</p>
+                            <p>Category: {{ $book->category }}</p>
+                            <p>Quantity: {{ $book->quantity }}</p>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </main>
 </div>

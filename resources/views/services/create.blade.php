@@ -21,25 +21,27 @@
         <h1 class="text-3xl font-bold mb-10">Dashboard</h1>
         <nav class="flex-1 space-y-4">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>🏠</span>
+               
                 <span>Dashboard</span>
             </a>
             <a href="{{ route('books.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
                 <span>📚</span>
                 <span>Manage Books</span>
             </a>
-            <a href="{{ route('users.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+            <a href="{{ route('users.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
                 <span>👥</span>
                 <span>All Users</span>
             </a>
-            <a href="{{ route('books.sold') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
-                <span>📖</span>
-                <span>All Sold Books</span>
-            </a>
-            <a href="{{ route('services.create') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
-                <span>🛠️</span>
-                <span>Add Service</span>
-            </a>
+            <a href="{{ route('books.sold') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+            <span>📖</span>
+          <span>All Sold Books</span>
+           </a>
+           <a href="{{ route('services.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+</a>
+
+        
         </nav>
         <div class="mt-auto">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">

@@ -35,6 +35,10 @@
             <span>📖</span>
           <span>All Sold Books</span>
            </a>
+           <a href="{{ route('services.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+</a>
         </nav>
         <div class="mt-auto">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
@@ -55,11 +59,7 @@
             </div>
         @endif
 
-        <!-- Dashboard Content -->
-        <div id="dashboard-content" class="bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
-            <p>You are Logged In</p>
-        </div>
+    
 
         <!-- Manage Books Content -->
         <div id="manage-books-content" class="hidden">

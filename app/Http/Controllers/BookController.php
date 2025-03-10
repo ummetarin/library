@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Bookcontroller extends Controller
@@ -126,6 +127,18 @@ public function borrowsBooks()
     $borrowsBooks = DB::table('borrowed_items')->get();
     return view('books.borrows', compact('borrowsBooks'));
 }
+
+public function myBooks()
+{
+    // Get the currently authenticated user
+    $user = Auth::user();
+    
+    // Fetch books associated with the logged-in user
+    $books = $user->books;  // Use the books relationship defined earlier
+
+    return view('books.myBooks', compact('books'));
+}
+
    
 
 }
