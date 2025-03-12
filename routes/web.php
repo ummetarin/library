@@ -59,11 +59,8 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 // forget
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 // purchase
@@ -91,6 +88,7 @@ Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])-
 // service
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/all', [ServiceController::class, 'all'])->name('services.all');
 Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
 Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
 Route::get('/services/{id}/edit', [ServiceController::class, 'edit'])->name('services.edit');
@@ -98,8 +96,7 @@ Route::delete('/services/{id}', [ServiceController::class, 'destroy'])->name('se
 Route::put('/services/{id}', [ServiceController::class, 'update'])->name('services.update');
 
 
-//my books
-Route::get('/my-books', [BookController::class, 'myBooks'])->name('books.myBooks');
+
 
 
 

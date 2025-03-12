@@ -12,6 +12,11 @@ class ServiceController extends Controller
         $services = Service::all(); // Fetch all services
         return view('services.index', compact('services'));
     }
+    public function all()
+    {
+        $services = Service::all(); // Fetch all services
+        return view('services.all', compact('services'));
+    }
     
   
     public function create()

@@ -70,8 +70,13 @@
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li class="text-amber-900 hover:text-gray-700"><a href="/">Home</a></li>
-      <li class="text-amber-900 hover:text-gray-700"><a href="{{ route('bookdetails.all') }}">All Books</a></li>
-      <li class="text-amber-900 hover:text-gray-700"><a>All Service</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="{{ route('bookdetails.all') }}">All Books</a></li>      
+      <li class="text-amber-900 hover:text-gray-700"><a href="/dashboard">Dashboard</a></li>      
+
+      <li class="text-amber-900 hover:text-gray-700">
+      <a href="{{ route('services.all') }}">All Service</a>
+     </li>
+
     </ul>
   </div>
   <div class="navbar-end">
