@@ -57,9 +57,14 @@
       <ul
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
-        <li><a href="{{ route('bookdetails.all') }}">All Books</a></li>
-        <li><a>All Service</a></li>
+        <li class="text-amber-900 hover:text-gray-700"><a href="/">Home</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="/about">About</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="{{ route('bookdetails.all') }}">All Books</a></li>      
+      <li class="text-amber-900 hover:text-gray-700"><a href="/dashboard">Dashboard</a></li>      
+
+      <li class="text-amber-900 hover:text-gray-700">
+      <a href="{{ route('services.all') }}">All Service</a>
+     </li>
       </ul>
     </div>
     <div class="flex flex-row items-center">
@@ -70,6 +75,7 @@
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li class="text-amber-900 hover:text-gray-700"><a href="/">Home</a></li>
+      <li class="text-amber-900 hover:text-gray-700"><a href="/about">About</a></li>
       <li class="text-amber-900 hover:text-gray-700"><a href="{{ route('bookdetails.all') }}">All Books</a></li>      
       <li class="text-amber-900 hover:text-gray-700"><a href="/dashboard">Dashboard</a></li>      
 
