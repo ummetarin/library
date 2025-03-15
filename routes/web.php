@@ -27,6 +27,10 @@ Route::get('/', function () {
     return view('Home');
 });
 
+Route::get('/about', function () {
+    return view('About');
+});
+
 
 //book details
 Route::get('/books/all', [BookController::class, 'allBooks'])->name('bookdetails.all');

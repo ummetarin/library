@@ -30,13 +30,19 @@
     @if(!empty($services) && count($services) > 0)
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             @foreach($services as $item)
-                <div class="bg-white shadow-md border border-gray-200 rounded-lg overflow-hidden transition-transform duration-300">
-                    <img src="{{ $item->image }}" alt="Service Image" class="w-full h-60 object-cover">
-                    <div class="p-5 text-center">
-                        <h2 class="text-2xl font-semibold text-[#1C365E]">{{ $item->name }}</h2>
-                        <p class="text-gray-600 mt-2 text-sm leading-relaxed">{{ $item->description }}</p>
-                    </div>
-                </div>
+            <div class="card bg-base-100 w-96 shadow-sm">
+  <figure>
+    <img
+      src="{{ $item->image }}"
+      alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{{ $item->name }}</h2>
+    <p>{{ $item->description }}</p>
+    
+  </div>
+</div>
+              
             @endforeach
         </div>
     @else

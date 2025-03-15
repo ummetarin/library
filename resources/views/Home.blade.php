@@ -103,10 +103,137 @@
   </div>
 </div>
 
+<!-- banner -->
+<div class="relative bg-[#F5EFE6]  bg-base-200 py-12">
+  <div class="relative flex flex-col lg:flex-row items-center max-w-6xl mx-auto gap-10">
+    <!-- Image Section with Overlay -->
+    <div class="relative w-full lg:w-1/2">
+      <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
+      <img
+        src="https://i.postimg.cc/bYLVx3D7/library-interior-empty-room-reading-with-books-wooden-shelves-33099-1722.avif"
+        class="w-full h-[450px] object-cover rounded-lg shadow-2xl" />
+    </div>
+
+    <!-- Text Section -->
+    <div class="w-full lg:w-1/2 px-6 lg:px-12 text-center lg:text-left">
+      <h1 class="text-5xl text-amber-900 font-bold drop-shadow-lg">
+        Welcome to Online Library System
+      </h1>
+      <p class="py-6 text-lg text-amber-900 max-w-lg drop-shadow-lg">
+        Explore a world of endless possibilities with our vast collection of books, research materials, and digital resources. Whether you're a student, researcher, or book lover, our library offers a quiet space to learn, discover, and grow.
+      </p>
+      <button class="btn bg-[#D2B48C] hover:bg-[#b99870] text-white px-6 py-3 rounded-lg shadow-lg">
+        Explore Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- service -->
+
+<div class="bg-white py-16">
+  <div class="max-w-6xl mx-auto text-center px-6">
+    <h2 class="text-4xl text-amber-900 font-bold">Our Library Services</h2>
+    <p class="text-lg text-amber-900 mt-4 max-w-2xl mx-auto">
+      Discover a range of services designed to support your learning and research needs. From digital resources to book borrowing, we make knowledge accessible.
+    </p>
+
+    <!-- Service Cards -->
+    <div class="grid md:grid-cols-3 gap-8 mt-10">
+      
+     
+
+      <div class="bg-white rounded-lg shadow-lg p-6 ">
+        <img src="https://i.postimg.cc/WpDSZTVk/Research-journey-for-arts-design-media-PRESNTATION-SLIDE.png" alt="Research Assistance" class="w-full mx-auto mb-4">
+        <h3 class="text-2xl text-amber-900 text-left font-semibold">Research Assistance</h3>
+        <p class="text-left text-amber-800 mt-2">
+          Get expert help with research, citations, and academic writing support.
+        </p>
+      </div>
+
+    
+
+    </div>
+  </div>
+</div>
+
+<!-- banner -->
+<div class="relative bg-[#EFE3D5] py-12">
+  <div class="relative flex flex-col lg:flex-row-reverse items-center max-w-6xl mx-auto gap-10">
+    
+    <!-- Image Section (Now on the Right) -->
+    <div class="relative w-full lg:w-1/2">
+      <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
+      <img
+        src="https://i.postimg.cc/jjwCXgSZ/images.jpg"
+        class="w-full h-[450px] object-cover rounded-lg shadow-2xl" />
+    </div>
+
+    <!-- Text Section (Now on the Left) -->
+    <div class="w-full lg:w-1/2 px-6 lg:px-12 text-center lg:text-left">
+      <h1 class="text-5xl text-amber-900 font-bold drop-shadow-lg">
+        Why Choose Our Library?
+      </h1>
+      <p class="py-6 text-lg text-amber-900 max-w-lg drop-shadow-lg">
+        Our library offers more than just books! Enjoy **24/7 digital access**, personalized recommendations, and expert research assistance. Whether you need a **quiet study space** or the latest **bestsellers**, we provide a welcoming environment for all readers.
+      </p>
+      <button class="btn bg-[#D2B48C] hover:bg-[#b99870] text-white px-6 py-3 rounded-lg shadow-lg">
+        Learn More
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="bg-white py-16 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    
+    <!-- Section Title -->
+    <h1 class="text-4xl text-amber-900 font-bold drop-shadow-lg">
+      Join Our Community
+    </h1>
+    <p class="text-lg text-amber-800 mt-4 max-w-2xl mx-auto">
+      Become a part of our vibrant reading community! Participate in book clubs, literary discussions, and special events that connect readers and inspire knowledge sharing.
+    </p>
+
+    <!-- Content Wrapper -->
+    <div class="mt-10 flex flex-col lg:flex-row items-center gap-[56px]">
+      
+      <!-- Image -->
+      <div class="w-full max-w-[500px] h-[300px] rounded-md   overflow-hidden shadow-xl">
+        <img src="https://i.postimg.cc/HkWvxYsg/7a11f5274c6de6f11292725c5a7458a7.jpg" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Text with Card Background -->
+      <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg text-amber-900">
+        <h3 class="text-2xl font-semibold">Why Join?</h3>
+        <ul class="mt-3 text-lg space-y-2">
+          <li>📖 Access exclusive book clubs</li>
+          <li>🎤 Attend engaging literary events</li>
+          <li>💡 Share ideas with fellow readers</li>
+          <li>🎁 Enjoy member-only benefits</li>
+        </ul>
+        <button class="mt-5 btn bg-[#D2B48C] hover:bg-[#b99870] text-white px-6 py-3 rounded-lg shadow-md">
+          Become a Member
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 <!-- Footer -->
-<footer class="footer footer-center bg-base-200 text-base-content rounded p-10">
+<footer class="footer footer-center  text-base-content rounded p-10">
   <nav class="grid grid-flow-col gap-4">
     <a class="link link-hover">About us</a>
     <a class="link link-hover">Contact</a>
