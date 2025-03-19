@@ -31,24 +31,23 @@
                 <span>👥</span>
                 <span>All Users</span>
             </a>
-            <a href="{{ route('books.sold') }}" >
+            <a href="{{ route('books.sold') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
           <span>All Sold Books</span>
            </a>
-           <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+            <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
-          <span>All Bowwores Books</span>
+          <span>All Sold Books</span>
            </a>
-           <a href="{{ route('reviews.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
-            <span>📖</span>
-          <span>All Reviews</span>
-           </a>
+           <a href="{{ route('services.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+</a>
 
-    
-   
-        
-
-        
+            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
         </nav>
         <div class="mt-auto">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
@@ -56,17 +55,10 @@
                 <span>Logout</span>
             </a>
         </div>
-        <a href="{{ route('reviews.create') }}"
-   class="flex items-center justify-center space-x-2 bg-white text-[#D2B48C] font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 transform hover:bg-[#c3a47b] hover:text-white hover:scale-105">
-    <span>⭐</span>
-    <span>Give a Review</span>
-</a>
-
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-8">
-      
         <!-- Success Message -->
         @if (session('success'))
             <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-6">
@@ -75,17 +67,38 @@
         @endif
 
         <!-- Dashboard Content -->
+       
         <div class="bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
-            <p>You are Logged In</p>
-        </div>
-        <div class="flex justify-center mt-6">
-    
+    <h3 class="text-2xl font-semibold mb-4 text-[#D2B48C]">All Reviews </h3>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+            <thead class="bg-gradient-to-r from-[#D2B48C] to-[#b8956e] text-white text-sm">
+                <tr>
+                    <th class="py-3 px-3 text-left">#</th>
+                    <th class="py-3 px-3 text-left">Name</th>
+                    <th class="py-3 px-3 text-left">Email</th>
+                    <th class="py-3 px-3 text-left">Reviews</th>
+            
+                </tr>
+            </thead>
+            <tbody class="text-sm divide-y divide-gray-300 bg-gray-50">
+                @foreach($review as $index => $rev)
+            
+                    <tr class="hover:bg-gray-100 transition">
+                        <td class="py-3 px-3 font-medium text-gray-800">{{ $index + 1 }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $rev->name }}</td>
+                        <td class="py-3 px-3 text-gray-600">${{ $rev->email }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $rev->review }}</td>
+                   
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
     </main>
-
-    
 </div>
 
 </body>

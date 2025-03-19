@@ -108,6 +108,8 @@ Route::put('/services/{id}', [ServiceController::class, 'update'])->name('servic
 
 
 Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/reviews/index', [ReviewController::class, 'index'])->name('reviews.index');
 
 
 

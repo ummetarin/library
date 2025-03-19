@@ -34,7 +34,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="">
 
 <!-- nav -->
 <div class="navbar bg-base-100">
