@@ -128,16 +128,34 @@ public function borrowsBooks()
     return view('books.borrows', compact('borrowsBooks'));
 }
 
-public function myBooks()
-{
-    // Get the currently authenticated user
-    $user = Auth::user();
-    
-    // Fetch books associated with the logged-in user
-    $books = $user->books;  // Use the books relationship defined earlier
-
-    return view('books.myBooks', compact('books'));
+public function borrow($id) {
+    $book = Book::findOrFail($id);
+    return view('bookdetails.borrow', compact('book'));
 }
+
+public function processBorrow(Request $request, $id) {
+    $request->validate([
+        'return_date' => 'required|date',
+        'confirm' => 'required',
+        'payment_method' => 'in:paypal' // Restricting to only PayPal
+    ]);
+
+    $book = Book::findOrFail($id);
+
+    DB::table('borrowed_items')->insert([
+        'book_id' => $book->id,
+        'title' => $book->title,
+        'price' => $book->price,
+        'payment_method' => $request->payment_method,
+        'borrowed_at' => now(),  
+        'return_date' => $request->return_date  
+    ]);
+    
+
+    return redirect()->route('bookdetails.all')->with('success', 'Book borrowed successfully!');
+}
+
+
 
    
 

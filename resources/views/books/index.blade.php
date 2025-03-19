@@ -62,7 +62,7 @@
     
 
         <!-- Manage Books Content -->
-        <div id="manage-books-content" class="hidden">
+        <div>
             <div class="flex justify-between items-center mb-6">
                 <h1 class="text-3xl font-bold text-[#D2B48C]">All Books</h1>
                 <a href="{{ route('books.create') }}" 
@@ -120,17 +120,7 @@
     </main>
 </div>
 
-<script>
-    const manageBooksLink = document.getElementById('manage-books-link');
-    const dashboardContent = document.getElementById('dashboard-content');
-    const manageBooksContent = document.getElementById('manage-books-content');
 
-    manageBooksLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        dashboardContent.classList.add('hidden');
-        manageBooksContent.classList.remove('hidden');
-    });
-</script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\ServiceController;
@@ -23,9 +24,8 @@ use App\Http\Controllers\ServiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('Home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 Route::get('/about', function () {
     return view('About');
@@ -51,6 +51,7 @@ Route::put('/books/update/{id}', [BookController::class, 'update'])->name('books
 Route::delete('/books/delete/{id}', [BookController::class, 'destroy'])->name('books.destroy');  // Delete book
 
 
+
 // login
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
@@ -73,6 +74,9 @@ Route::post('/bookdetails/purchase/{id}', [BookController::class, 'purchase'])->
 Route::post('/books/borrow/{id}', [BookController::class, 'storeBorrow'])->name('bookdetails.storeBorrow');
 Route::get('/books/sold', [BookController::class, 'soldBooks'])->name('books.sold');
 Route::get('/books/borrows', [BookController::class, 'borrowsBooks'])->name('books.borrows');
+Route::get('/bookdetails/borrow/{id}', [BookController::class, 'borrow'])->name('bookdetails.borrow');
+Route::post('/bookdetails/borrow/{id}', [BookController::class, 'processBorrow'])->name('bookdetails.processBorrow');
+
 
 
 

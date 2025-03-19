@@ -148,22 +148,19 @@
 
     <!-- Service Cards -->
     <div class="grid md:grid-cols-3 gap-8 mt-10">
-      
-     
-
-      <div class="bg-white rounded-lg shadow-lg p-6 ">
-        <img src="https://i.postimg.cc/WpDSZTVk/Research-journey-for-arts-design-media-PRESNTATION-SLIDE.png" alt="Research Assistance" class="w-full mx-auto mb-4">
-        <h3 class="text-2xl text-amber-900 text-left font-semibold">Research Assistance</h3>
-        <p class="text-left text-amber-800 mt-2">
-          Get expert help with research, citations, and academic writing support.
-        </p>
-      </div>
-
-    
-
+      @foreach($services as $service)
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" class="w-full mx-auto mb-4">
+          <h3 class="text-2xl text-amber-900 text-left font-semibold">{{ $service->name }}</h3>
+          <p class="text-left text-amber-800 mt-2">
+            {{ $service->description }}
+          </p>
+        </div>
+      @endforeach
     </div>
   </div>
 </div>
+
 
 <!-- banner -->
 <div class="relative bg-[#EFE3D5] py-12">

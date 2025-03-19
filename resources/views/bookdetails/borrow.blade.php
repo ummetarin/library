@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script> <title>Book Details</title>
+    <script src="https://cdn.tailwindcss.com"></script> <title>Buy Book</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -97,42 +97,43 @@
   <a class="btn bg-[#D2B48C]" href="{{ route('register') }}">Registration</a>
   </div>
 </div>
+<!-- buy book -->
 
-<!-- Banner Section -->
-<section class="bg-[#D2B48C] py-20 text-center text-white">
-    <h1 class="text-5xl font-bold">Book Details</h1>
-</section>
+<section class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+    <h1 class="text-3xl font-bold text-[#D2B48C] mb-6">Buy Book</h1>
 
-<!-- Book Details Section -->
-<section class="container mx-auto py-10 px-4">
-    <div class="max-w-4xl mx-auto glass-card bg-white shadow-lg rounded-xl p-6 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
-            <!-- Book Image -->
-            <div class="flex justify-center">
-                <img src="{{ asset($book->image) }}" alt="{{ $book->title }}" 
-                     class="w-64 md:w-72 h-auto object-cover rounded-xl shadow-md border-2 border-gray-300">
-            </div>
+    <form action="{{ route('bookdetails.processBorrow', $book->id) }}" method="POST">
+        @csrf
 
-            <!-- Book Information -->
-            <div class="flex flex-col space-y-2 md:space-y-4">
-                <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">{{ $book->title }}</h2>
-                <p class="text-md text-gray-700"><strong>Author:</strong> {{ $book->author }}</p>
-                <p class="text-md text-gray-700"><strong>Category:</strong> {{ $book->category }}</p>
-                <p class="text-md font-medium mt-2">Price: <span class="text-[#8B4513] font-semibold">${{ $book->price }}</span></p>
-
-                @if(isset($book->description))
-                    <p class="text-md text-gray-600"><strong>Description:</strong> {{ $book->description }}</p>
-                @endif
-
-                <!-- Buttons -->
-                <div class="flex flex-wrap gap-4 mt-4 md:mt-6">
-                    <a href="{{ route('bookdetails.buy', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Buy Now</a>
-                    <a href="{{ route('bookdetails.borrow', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Borrow Now</a>
-                    <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
-                </div>
-            </div>
+        <!-- Book Details -->
+        <div class="mb-4">
+            <label class="block text-[#D2B48C] font-medium">Book Name:</label>
+            <p class="text-lg font-semibold">{{ $book->title }}</p>
         </div>
-    </div>
+
+        <!-- Return Date -->
+        <div class="mb-6">
+            <label class="block text-[#D2B48C] font-medium">Return Date:</label>
+            <input type="date" name="return_date" required class="p-2 border border-gray-400 rounded-lg w-full">
+        </div>
+        <!-- Payment Method -->
+        <div class="mb-6">
+            <label class="block [#D2B48C] font-medium mb-2">Select Payment Method:</label>
+            <select name="payment_method" class="p-2 border border-gray-400 rounded-lg w-full" required id="payment_method" onchange="togglePaypalButton()">
+                <option value="paypal">PayPal</option>
+            </select>
+        </div> 
+        <!-- Confirmation -->
+        <div class="mb-6">
+            <label class="block text-[#D2B48C] font-medium">Confirm Borrow:</label>
+            <input type="checkbox" name="confirm" required class="mt-2">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="px-6 py-2 bg-[#D2B48C] text-white rounded-lg hover:text-black">
+            Confirm and Borrow
+        </button>
+    </form>
 </section>
 
 <!-- Footer -->
@@ -187,6 +188,7 @@
     <p class="text-amber-800 hover:text-amber-900">Copyright © - All rights reserved by ACME Industries Ltd</p>
   </aside>
 </footer>
+
 
 
 </body>
