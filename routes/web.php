@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ReviewController;
 
 
 
@@ -103,6 +104,10 @@ Route::get('/services/{id}/edit', [ServiceController::class, 'edit'])->name('ser
 Route::delete('/services/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
 Route::put('/services/{id}', [ServiceController::class, 'update'])->name('services.update');
 
+// reviews
+
+
+Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
 
 
 

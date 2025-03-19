@@ -55,10 +55,17 @@
                 <span>Logout</span>
             </a>
         </div>
+        <a href="{{ route('reviews.create') }}"
+   class="flex items-center justify-center space-x-2 bg-white text-[#D2B48C] font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 transform hover:bg-[#c3a47b] hover:text-white hover:scale-105">
+    <span>⭐</span>
+    <span>Give a Review</span>
+</a>
+
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-8">
+      
         <!-- Success Message -->
         @if (session('success'))
             <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-6">
@@ -71,7 +78,13 @@
             <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
             <p>You are Logged In</p>
         </div>
+        <div class="flex justify-center mt-6">
+    
+</div>
+
     </main>
+
+    
 </div>
 
 </body>
