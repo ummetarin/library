@@ -129,10 +129,13 @@
             <input type="checkbox" name="confirm" required class="mt-2">
         </div>
 
-        <!-- Submit Button -->
+        @if($book->quantity > 0)
         <button type="submit" class="px-6 py-2 bg-[#D2B48C] text-white rounded-lg hover:text-black">
-            Confirm and Borrow
+        Confirm and Borrow
         </button>
+         @else
+         <p class="text-red-500 font-bold">This book is currently out of stock.</p>
+         @endif
     </form>
 </section>
 

@@ -31,23 +31,23 @@
                 <span>👥</span>
                 <span>All Users</span>
             </a>
-            <a href="{{ route('books.sold') }}" >
+            <a href="{{ route('books.sold') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
           <span>All Sold Books</span>
            </a>
-           <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+            <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
-          <span>All Bowwores Books</span>
+          <span>All Sold Books</span>
            </a>
-
-    
-    <a href="" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+           <a href="{{ route('services.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
     <span>🛠️</span>
-    <span>My Books</span>
+    <span>All Service</span>
 </a>
-        
 
-        
+            <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
         </nav>
         <div class="mt-auto">
             <a href="#" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
@@ -67,10 +67,36 @@
         @endif
 
         <!-- Dashboard Content -->
+       
         <div class="bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Welcome Back!</h3>
-            <p>You are Logged In</p>
-        </div>
+    <h3 class="text-2xl font-semibold mb-4 text-[#D2B48C]">All Borrows Books</h3>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
+            <thead class="bg-gradient-to-r from-[#D2B48C] to-[#b8956e] text-white text-sm">
+                <tr>
+                    <th class="py-3 px-3 text-left">#</th>
+                    <th class="py-3 px-3 text-left">Book Name</th>
+                    <th class="py-3 px-3 text-left">Price</th>
+                    <th class="py-3 px-3 text-left">Payment Method</th>
+                    <th class="py-3 px-3 text-left">Borrowd At</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm divide-y divide-gray-300 bg-gray-50">
+                @foreach($borrowsBooks as $index => $book)
+                    <tr class="hover:bg-gray-100 transition">
+                        <td class="py-3 px-3 font-medium text-gray-800">{{ $index + 1 }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->title }}</td>
+                        <td class="py-3 px-3 text-gray-600">${{ $book->price }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->payment_method }}</td>
+                        <td class="py-3 px-3 text-gray-600">{{ $book->borrowed_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
     </main>
 </div>
 

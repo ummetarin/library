@@ -126,6 +126,8 @@
                     <h2 class="text-xl font-semibold text-[#D2B48C]">{{ $book->title }}</h2>
                     <p class="text-md text-gray-500">{{ $book->author }}</p>
                     <p class="text-md font-medium mt-2">Price: ${{ $book->price }}</p>
+                    <p><strong>Available Copies:</strong> {{ $book->quantity }}</p>
+
                     <div class="flex justify-between mt-4">
                         <a href="{{ route('bookdetails.show', $book->id) }}" 
                            class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">Details</a>

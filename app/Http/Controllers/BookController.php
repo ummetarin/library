@@ -137,22 +137,30 @@ public function processBorrow(Request $request, $id) {
     $request->validate([
         'return_date' => 'required|date',
         'confirm' => 'required',
-        'payment_method' => 'in:paypal' // Restricting to only PayPal
+        'payment_method' => 'required'
     ]);
 
     $book = Book::findOrFail($id);
 
-    DB::table('borrowed_items')->insert([
-        'book_id' => $book->id,
-        'title' => $book->title,
-        'price' => $book->price,
-        'payment_method' => $request->payment_method,
-        'borrowed_at' => now(),  
-        'return_date' => $request->return_date  
-    ]);
-    
+    if ($book->quantity > 0) {
+        // Reduce the book quantity
+        $book->quantity -= 1;
+        $book->save();
 
-    return redirect()->route('bookdetails.all')->with('success', 'Book borrowed successfully!');
+        // Store borrowing details
+        DB::table('borrowed_items')->insert([
+            'book_id' => $book->id,
+            'title' => $book->title,
+            'price' => $book->price,
+            'payment_method' => $request->payment_method,
+            'borrowed_at' => now(),
+            'return_date' => $request->return_date,
+        ]);
+
+        return redirect()->route('bookdetails.all')->with('success', 'Book borrowed successfully!');
+    } else {
+        return back()->with('error', 'Sorry, this book is currently out of stock.');
+    }
 }
 
 

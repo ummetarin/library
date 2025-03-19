@@ -118,6 +118,8 @@
                 <h2 class="text-2xl md:text-4xl font-bold text-[#8B4513]">{{ $book->title }}</h2>
                 <p class="text-md text-gray-700"><strong>Author:</strong> {{ $book->author }}</p>
                 <p class="text-md text-gray-700"><strong>Category:</strong> {{ $book->category }}</p>
+                <p><strong>Available Copies:</strong> {{ $book->quantity }}</p>
+
                 <p class="text-md font-medium mt-2">Price: <span class="text-[#8B4513] font-semibold">${{ $book->price }}</span></p>
 
                 @if(isset($book->description))
