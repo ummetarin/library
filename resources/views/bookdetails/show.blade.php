@@ -128,8 +128,18 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap gap-4 mt-4 md:mt-6">
-                    <a href="{{ route('bookdetails.buy', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Buy Now</a>
-                    <a href="{{ route('bookdetails.borrow', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Borrow Now</a>
+<!-- Buttons -->
+<div class="flex flex-wrap gap-4 mt-4 md:mt-6">
+    @auth
+        <a href="{{ route('bookdetails.buy', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Buy Now</a>
+        <a href="{{ route('bookdetails.borrow', $book->id) }}" class="button-style btn-buy text-sm md:text-base">Borrow Now</a>
+    @else
+        <p class="text-red-600 font-semibold">You must be logged in to buy or borrow books.</p>
+        <a href="{{ route('login') }}" class="button-style btn-back text-sm md:text-base">Login</a>
+    @endauth
+    <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
+</div>
+
                     <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
                 </div>
             </div>

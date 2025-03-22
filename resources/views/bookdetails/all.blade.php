@@ -131,8 +131,19 @@
                     <div class="flex justify-between mt-4">
                         <a href="{{ route('bookdetails.show', $book->id) }}" 
                            class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">Details</a>
-                        <a href="{{ route('bookdetails.buy', $book->id) }}" 
-                           class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">Buy</a>
+                           @if(Auth::check())
+    <a href="{{ route('bookdetails.buy', $book->id) }}" 
+       class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg 
+       {{ $book->quantity == 0 ? 'pointer-events-none opacity-50' : '' }}">
+       Buy
+    </a>
+@else
+    <a href="{{ route('login') }}" 
+       class="px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white font-medium rounded-lg">
+       Login to Buy
+    </a>
+@endif
+
                     </div>
                 </div>
             </div>
