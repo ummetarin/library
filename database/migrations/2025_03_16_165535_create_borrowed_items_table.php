@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->string('payment_method');
             $table->timestamp('borrowed_at')->useCurrent();
-            $table->date('return_date'); // Added return_date
+            $table->date('return_date'); 
             $table->timestamps();
         });
         

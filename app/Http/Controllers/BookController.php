@@ -104,16 +104,24 @@ public function purchase(Request $request, $id) {
 
     $book = Book::findOrFail($id);
 
-    // Store purchase in the database
-    DB::table('purchased_books')->insert([
-        'book_id' => $book->id,
-        'title' => $book->title,
-        'price' => $book->price,
-        'payment_method' => $request->payment_method,
-        'purchased_at' => now()
-    ]);
+    if ($book->quantity > 0) {
 
-    return redirect()->route('bookdetails.all')->with('success', 'Book purchased successfully!');
+        $book->quantity -= 1;
+        $book->save();
+
+       
+        DB::table('purchased_books')->insert([
+            'book_id' => $book->id,
+            'title' => $book->title,
+            'price' => $book->price,
+            'payment_method' => $request->payment_method,
+            'purchased_at' => now()
+        ]);
+
+        return redirect()->route('bookdetails.all')->with('success', 'Book purchased successfully!');
+    } else {
+        return redirect()->route('bookdetails.all')->with('error', 'Sorry, this book is out of stock!');
+    }
 }
 
 
@@ -143,11 +151,9 @@ public function processBorrow(Request $request, $id) {
     $book = Book::findOrFail($id);
 
     if ($book->quantity > 0) {
-        // Reduce the book quantity
         $book->quantity -= 1;
         $book->save();
 
-        // Store borrowing details
         DB::table('borrowed_items')->insert([
             'book_id' => $book->id,
             'title' => $book->title,
@@ -208,7 +214,6 @@ public function processReturn(Request $request, $id)
         return redirect()->route('books.borrows')->with('error', 'You cannot return this book after 30 days.');
     }
 
-    // Increase the quantity of the book in the books table
     $bookModel = Book::find($book->book_id);
     if ($bookModel) {
         $bookModel->increment('quantity'); // ✅ Increase the book quantity by 1
