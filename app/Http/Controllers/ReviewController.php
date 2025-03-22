@@ -38,6 +38,15 @@ public function store(Request $request)
     // Redirect back with success message
     return back()->with('success', 'Review posted successfully!');
 }
+
+public function destroy($id)
+{
+    $review = Review::findOrFail($id);
+    $review->delete();
+
+    return back()->with('success', 'Review deleted successfully!');
+}
+
 }
 
 

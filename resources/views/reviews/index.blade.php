@@ -79,6 +79,7 @@
                     <th class="py-3 px-3 text-left">Name</th>
                     <th class="py-3 px-3 text-left">Email</th>
                     <th class="py-3 px-3 text-left">Reviews</th>
+                    <th class="py-3 px-3 text-left">Delete</th>
             
                 </tr>
             </thead>
@@ -90,6 +91,15 @@
                         <td class="py-3 px-3 text-gray-600">{{ $rev->name }}</td>
                         <td class="py-3 px-3 text-gray-600">${{ $rev->email }}</td>
                         <td class="py-3 px-3 text-gray-600">{{ $rev->review }}</td>
+                        <td class="py-3 px-3 text-gray-600">
+    <form action="{{ route('reviews.destroy', $rev->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700 transition">Delete
+        </button>
+    </form>
+</td>
+
                    
                     </tr>
                 @endforeach
