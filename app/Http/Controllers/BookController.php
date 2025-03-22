@@ -164,6 +164,63 @@ public function processBorrow(Request $request, $id) {
 }
 
 
+// return
+
+public function showReturnForm($id)
+{
+    $book = DB::table('borrowed_items')->where('id', $id)->first();
+
+    if (!$book) {
+        return redirect()->route('books.borrows')->with('error', 'Book not found.');
+    }
+
+    $borrowedAt = strtotime($book->borrowed_at);
+    $currentDate = strtotime(now());
+    $daysBorrowed = ($currentDate - $borrowedAt) / (60 * 60 * 24);
+
+    if ($daysBorrowed <= 10) {
+        $refundAmount = $book->price * 0.6;
+    } elseif ($daysBorrowed <= 20) {
+        $refundAmount = $book->price * 0.5;
+    } elseif ($daysBorrowed <= 30) {
+        $refundAmount = $book->price * 0.4;
+    } else {
+        $refundAmount = 0;
+    }
+
+    return view('books.return', compact('book', 'refundAmount'));
+}
+
+
+public function processReturn(Request $request, $id)
+{
+    $book = DB::table('borrowed_items')->where('id', $id)->first();
+
+    if (!$book) {
+        return redirect()->route('books.borrows')->with('error', 'Book not found.');
+    }
+
+    $borrowedAt = strtotime($book->borrowed_at);
+    $currentDate = strtotime(now());
+    $daysBorrowed = ($currentDate - $borrowedAt) / (60 * 60 * 24);
+
+    if ($daysBorrowed > 30) {
+        return redirect()->route('books.borrows')->with('error', 'You cannot return this book after 30 days.');
+    }
+
+    // Increase the quantity of the book in the books table
+    $bookModel = Book::find($book->book_id);
+    if ($bookModel) {
+        $bookModel->increment('quantity'); // ✅ Increase the book quantity by 1
+    }
+
+    // Delete the record from borrowed_items table
+    DB::table('borrowed_items')->where('id', $id)->delete();
+
+    return redirect()->route('books.borrows')->with('success', 'Book returned successfully!');
+}
+
+
 
    
 

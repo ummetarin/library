@@ -112,6 +112,11 @@ Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store
 Route::get('/reviews/index', [ReviewController::class, 'index'])->name('reviews.index');
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
+// return
+Route::get('/books/return/{id}', [BookController::class, 'showReturnForm'])->name('books.return');
+Route::post('/books/return/{id}', [BookController::class, 'processReturn']);
+
+
 
 
 
