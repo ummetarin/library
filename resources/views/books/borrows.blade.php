@@ -80,7 +80,6 @@
                     <th class="py-3 px-3 text-left">Price</th>
                     <th class="py-3 px-3 text-left">Payment Method</th>
                     <th class="py-3 px-3 text-left">Borrowd At</th>
-                    <th class="py-3 px-3 text-left">Button</th>
 
                 </tr>
             </thead>
@@ -92,11 +91,6 @@
                         <td class="py-3 px-3 text-gray-600">${{ $book->price }}</td>
                         <td class="py-3 px-3 text-gray-600">{{ $book->payment_method }}</td>
                         <td class="py-3 px-3 text-gray-600">{{ $book->borrowed_at }}</td>
-                        <td>
-    <a href="{{ route('books.return', $book->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700 transition">
-        Return
-    </a>
-</td>
 
                     </tr>
                 @endforeach

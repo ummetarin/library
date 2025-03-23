@@ -233,7 +233,7 @@ public function processReturn(Request $request, $id)
 public function myBooks()
 {
     $myBooks = DB::table('borrowed_items')->where('user_id', Auth::id())->get();
-    return view('users.my_books', compact('myBooks'));
+    return view('books.my_books', compact('myBooks'));
 }
 
 

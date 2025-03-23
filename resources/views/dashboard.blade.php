@@ -37,11 +37,15 @@
            </a>
            <a href="{{ route('books.borrows') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
-          <span>All Bowwores Books</span>
+          <span>All Borrowed Books</span>
            </a>
            <a href="{{ route('reviews.index') }}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
             <span>📖</span>
           <span>All Reviews</span>
+           </a>
+           <a href="{{route('books.my_books')}}" class="flex items-center space-x-2 bg-[#b8956e] p-2 rounded-lg">
+            <span>📖</span>
+          <span>My Borrowd Books</span>
            </a>
 
     
