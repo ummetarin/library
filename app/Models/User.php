@@ -46,8 +46,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function admin()
+    {
+        return $this->hasOne(Admin::class, 'user_id');
+    }
+
     public function isAdmin()
-{
-    return $this->hasOne(Admin::class)->exists();
-}
+    {
+        return $this->admin()->exists();
+    }
+
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -120,6 +121,9 @@ Route::post('/books/return/{id}', [BookController::class, 'processReturn']);
 // my_books
 
 Route::get('/users/my-books', [BookController::class, 'myBooks'])->name('books.my_books');
+
+// Authentication
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
 
