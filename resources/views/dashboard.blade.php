@@ -55,6 +55,14 @@
         <span>📖</span>
         <span>All Reviews</span>
     </a>
+    <a href="{{ route('services.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+    </a>
+    <a href="{{ route('books.my_books') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
+                <span>📖</span>
+                <span>My Borrowed Books</span>
+            </a>
         @else
          <!-- Show user-related links -->
         <a href="{{ route('books.my_books') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">

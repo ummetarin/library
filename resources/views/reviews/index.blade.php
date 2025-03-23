@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>My_books</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>All Review</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
 <div class="flex h-screen">
-@php
+    <!-- Sidebar -->
+    @php
     $isAdmin = auth()->user() && auth()->user()->isAdmin();
     @endphp
+
 
 
     
@@ -19,7 +27,7 @@
 <aside class="w-64 bg-[#D2B48C] text-white flex flex-col p-5">
   
     <nav class="flex-1 space-y-4">
-    <a href="/dashboard" class="flex text-3xl font-bold items-center space-x-2  p-3 rounded-lg">
+    <a href="/dashboard" class="flex text-3xl font-bold items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
         <span>Dashboard</span>
     </a>
 
@@ -31,7 +39,7 @@
         <span>📚</span>
         <span>Manage Books</span>
     </a>
-    <a href="{{ route('users.index') }}" class="flex hover:bg-[#b8956e] items-center space-x-2  p-3 rounded-lg">
+    <a href="{{ route('users.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
         <span>👥</span>
         <span>All Users</span>
     </a>
@@ -47,6 +55,14 @@
         <span>📖</span>
         <span>All Reviews</span>
     </a>
+    <a href="{{ route('services.index') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-2 rounded-lg">
+    <span>🛠️</span>
+    <span>All Service</span>
+    </a>
+    <a href="{{ route('books.my_books') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
+                <span>📖</span>
+                <span>My Borrowed Books</span>
+            </a>
         @else
          <!-- Show user-related links -->
         <a href="{{ route('books.my_books') }}" class="flex items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
