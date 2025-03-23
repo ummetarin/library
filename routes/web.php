@@ -117,6 +117,12 @@ Route::get('/books/return/{id}', [BookController::class, 'showReturnForm'])->nam
 Route::post('/books/return/{id}', [BookController::class, 'processReturn']);
 
 
+// my_books
+
+Route::get('/users/my-books', [BookController::class, 'myBooks'])->name('books.my_books');
+
+
+
 
 
 

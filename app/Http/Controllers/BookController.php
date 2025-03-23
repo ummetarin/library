@@ -155,12 +155,15 @@ public function processBorrow(Request $request, $id) {
         $book->save();
 
         DB::table('borrowed_items')->insert([
+            'user_id' => Auth::id(),  
             'book_id' => $book->id,
             'title' => $book->title,
             'price' => $book->price,
             'payment_method' => $request->payment_method,
             'borrowed_at' => now(),
             'return_date' => $request->return_date,
+            'created_at' => now(),  // ✅ Ensure timestamps are set
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('bookdetails.all')->with('success', 'Book borrowed successfully!');
@@ -216,7 +219,7 @@ public function processReturn(Request $request, $id)
 
     $bookModel = Book::find($book->book_id);
     if ($bookModel) {
-        $bookModel->increment('quantity'); // ✅ Increase the book quantity by 1
+        $bookModel->increment('quantity'); 
     }
 
     // Delete the record from borrowed_items table
@@ -225,6 +228,13 @@ public function processReturn(Request $request, $id)
     return redirect()->route('books.borrows')->with('success', 'Book returned successfully!');
 }
 
+// my_book
+
+public function myBooks()
+{
+    $myBooks = DB::table('borrowed_items')->where('user_id', Auth::id())->get();
+    return view('users.my_books', compact('myBooks'));
+}
 
 
    
