@@ -11,9 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReviewController;
-
-
-
+use App\Http\Controllers\StripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,8 +125,10 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 
 
+// stripe
 
-
+Route::get('/stripe', [StripePaymentController::class, 'stripe']);
+Route::post('/stripe', [StripePaymentController::class, 'stripePost'])->name('stripe');
 
 
 
