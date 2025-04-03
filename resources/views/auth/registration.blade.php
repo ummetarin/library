@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="">
 
 <!-- nav -->
 <div class="navbar bg-base-100">
@@ -77,7 +79,7 @@
 
 <!-- Registration Form Section -->
 <section class="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-    <h2 class="text-3xl font-bold text-[#D2B48C] mb-6 text-center">Register</h2>
+    
 
     <form action="{{ route('register.post') }}" method="POST">
         @csrf

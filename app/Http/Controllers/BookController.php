@@ -21,21 +21,27 @@ class Bookcontroller extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'price' => 'required',
-            'category' => 'required',
-            'image' => 'required',
-            'quantity' => 'required|integer'
-        ]);
+{
+    $request->validate([
+        'title' => 'required',
+        'author' => 'required',
+        'price' => 'required',
+        'category' => 'required',
+        'image' => 'required',
+        'quantity' => 'required|integer'
+    ]);
 
-        Book::create($request->all());
+    // Add user_id to the data
+    $data = $request->all();
+    $data['user_id'] = auth()->id(); // Assuming you're using Laravel's authentication system
 
-        return redirect()->route('books.index')->with('success', 'Book added successfully!');
-    }
+    // Create the book record with the user_id
+    Book::create($data);
 
+    return redirect()->route('books.index')->with('success', 'Book added successfully!');
+}
+
+    
     public function edit($id)
     {
         $book = Book::findOrFail($id);
@@ -106,15 +112,17 @@ public function purchase(Request $request, $id) {
 
     if ($book->quantity > 0) {
 
+        // Decrease the quantity of the book
         $book->quantity -= 1;
         $book->save();
 
-       
+        // Insert into purchased_books, including amount_paid
         DB::table('purchased_books')->insert([
             'book_id' => $book->id,
             'title' => $book->title,
             'price' => $book->price,
             'payment_method' => $request->payment_method,
+            'amount_paid' => $book->price, // Include the price as the amount_paid
             'purchased_at' => now()
         ]);
 
@@ -123,6 +131,7 @@ public function purchase(Request $request, $id) {
         return redirect()->route('bookdetails.all')->with('error', 'Sorry, this book is out of stock!');
     }
 }
+
 
 
 public function soldBooks()

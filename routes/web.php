@@ -130,5 +130,10 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 Route::get('/stripe', [StripePaymentController::class, 'stripe']);
 Route::post('/stripe', [StripePaymentController::class, 'stripePost'])->name('stripe');
 
+Route::get('/store-purchase/{book_id}', [BookController::class, 'storePurchase']);
+Route::get('/checkout/{id}', [BookController::class, 'checkout'])->name('stripe.checkout');
+
+
+
 
 

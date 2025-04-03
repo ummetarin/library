@@ -79,7 +79,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
 
-            return redirect()->intended('dashboard')
+            return redirect()->intended('/')
 
                         ->withSuccess('You have Successfully loggedin');
 
@@ -125,7 +125,7 @@ class AuthController extends Controller
 
          
 
-        return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return redirect("login")->withSuccess('Great! You have Successfully loggedin');
 
     }
 
