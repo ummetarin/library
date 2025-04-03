@@ -104,26 +104,25 @@
     <p class="text-lg mt-2 max-w-xl mx-auto">Discover a wide range of services tailored to your needs.</p>
 </section>
 
-<!-- Services Section -->
-<section class="container-custom py-12">
+<div class="flex items-center justify-center">
+<section class="max-w-[1200px] py-12">
     @if(!empty($services) && count($services) > 0)
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             @foreach($services as $item)
-            <div class="bg-white rounded-lg shadow-lg p-6 ">
-        <img src="{{ $item->image }}" alt="Research Assistance" class="w-full mx-auto mb-4">
-        <h3 class="text-2xl text-amber-900 text-left font-semibold">{{ $item->name }}</h3>
-        <p class="text-left text-amber-800 mt-2">
-        {{ $item->description }}
-        </p>
-      </div>
-           
-              
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <img src="{{ $item->image }}" alt="Service Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-2xl text-amber-900 text-left font-semibold">{{ $item->name }}</h3>
+                <p class="text-left text-amber-800 mt-2">
+                    {{ $item->description }}
+                </p>
+            </div>
             @endforeach
         </div>
     @else
         <p class="text-center text-gray-600 text-lg">No services found.</p>
     @endif
 </section>
+</div>
 
 <!-- Footer -->
 <footer class="footer footer-center bg-white text-base-content rounded p-10">

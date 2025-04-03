@@ -149,13 +149,13 @@
     <!-- Service Cards -->
     <div class="grid md:grid-cols-3 gap-8 mt-10">
       @foreach($services as $service)
-        <div class="bg-white rounded-lg shadow-lg p-6">
-          <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" class="w-full mx-auto mb-4">
-          <h3 class="text-2xl text-amber-900 text-left font-semibold">{{ $service->name }}</h3>
-          <p class="text-left text-amber-800 mt-2">
-            {{ $service->description }}
-          </p>
-        </div>
+      <div class="bg-white rounded-lg shadow-lg p-6">
+                <img src="{{ $service->image }}" alt="Service Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-2xl text-amber-900 text-left font-semibold">{{ $service->name }}</h3>
+                <p class="text-left text-amber-800 mt-2">
+                    {{ $service->description }}
+                </p>
+            </div>
       @endforeach
     </div>
   </div>
@@ -194,42 +194,6 @@
 </div>
 
 
-<div class="bg-white py-16 px-6">
-  <div class="max-w-5xl mx-auto text-center">
-    
-    <!-- Section Title -->
-    <h1 class="text-4xl text-amber-900 font-bold drop-shadow-lg">
-      Join Our Community
-    </h1>
-    <p class="text-lg text-amber-800 mt-4 max-w-2xl mx-auto">
-      Become a part of our vibrant reading community! Participate in book clubs, literary discussions, and special events that connect readers and inspire knowledge sharing.
-    </p>
-
-    <!-- Content Wrapper -->
-    <div class="mt-10 flex flex-col lg:flex-row items-center gap-[56px]">
-      
-      <!-- Image -->
-      <div class="w-full max-w-[500px] h-[300px] rounded-md   overflow-hidden shadow-xl">
-        <img src="https://i.postimg.cc/HkWvxYsg/7a11f5274c6de6f11292725c5a7458a7.jpg" class="w-full h-full object-cover" />
-      </div>
-
-      <!-- Text with Card Background -->
-      <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg text-amber-900">
-        <h3 class="text-2xl font-semibold">Why Join?</h3>
-        <ul class="mt-3 text-lg space-y-2">
-          <li>📖 Access exclusive book clubs</li>
-          <li>🎤 Attend engaging literary events</li>
-          <li>💡 Share ideas with fellow readers</li>
-          <li>🎁 Enjoy member-only benefits</li>
-        </ul>
-        <button class="mt-5 btn bg-[#D2B48C] hover:bg-[#b99870] text-white px-6 py-3 rounded-lg shadow-md">
-          Register Now
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 
