@@ -24,9 +24,10 @@
 
     
 <!-- Sidebar -->
-<aside class="w-64 bg-[#D2B48C] text-white flex flex-col p-5">
+<aside class="flex h-full">
   
-    <nav class="flex-1 space-y-4">
+   <div class="w-64 bg-[#D2B48C] text-white flex flex-col p-5 ">
+   <nav class="flex-1 space-y-4">
     <a href="/dashboard" class="flex text-3xl font-bold items-center space-x-2 hover:bg-[#b8956e] p-3 rounded-lg">
         <span>Dashboard</span>
     </a>
@@ -87,6 +88,7 @@
     </button>
     </form>
 
+   </div>
     
     </aside>
 
