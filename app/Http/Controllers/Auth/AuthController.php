@@ -14,23 +14,16 @@ class AuthController extends Controller
     /**
 
      * Write code on Method
-
      *
-
      * @return response()
-
      */
 
     public function index()
-
     {
-
         return view('auth.login');
-
     }  
 
       
-
     /**
 
      * Write code on Method
@@ -62,33 +55,17 @@ class AuthController extends Controller
      */
 
     public function postLogin(Request $request)
-
     {
-
         $request->validate([
-
             'email' => 'required',
-
             'password' => 'required',
-
         ]);
-
-   
-
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
-
             return redirect()->intended('/')
-
                         ->withSuccess('You have Successfully loggedin');
-
         }
-
-  
-
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
-
     }
 
       

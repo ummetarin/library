@@ -140,7 +140,7 @@
     <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
 </div>
 
-                    <a href="{{ route('bookdetails.all') }}" class="button-style btn-back text-sm md:text-base">Back</a>
+                   
                 </div>
             </div>
         </div>

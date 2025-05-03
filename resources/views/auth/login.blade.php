@@ -83,7 +83,6 @@
     <form action="{{ route('login.post') }}" method="POST">
         @csrf
 
-        <!-- Email Address -->
         <div class="mb-4">
             <label for="email_address" class="block text-gray-700 font-medium">E-Mail Address</label>
             <input type="text" id="email_address" name="email" class="p-2 border border-gray-400 rounded-lg w-full" required autofocus>
@@ -92,7 +91,6 @@
             @endif
         </div>
 
-        <!-- Password -->
         <div class="mb-4">
             <label for="password" class="block text-gray-700 font-medium">Password</label>
             <input type="password" id="password" name="password" class="p-2 border border-gray-400 rounded-lg w-full" required>
@@ -100,16 +98,10 @@
                 <span class="text-red-600 text-sm">{{ $errors->first('password') }}</span>
             @endif
         </div>
-
-        <!-- Remember Me -->
         <div class="mb-4 flex items-center">
             <input type="checkbox" name="remember" id="remember" class="mr-2">
             <label for="remember" class="text-gray-700">Remember Me</label>
         </div>
-
-    
-
-        <!-- Submit Button -->
         <div>
             <button type="submit" class="w-full px-4 py-2 bg-[#D2B48C] hover:bg-[#b8956e] text-white rounded-lg">Login</button>
         </div>

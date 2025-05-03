@@ -8,31 +8,22 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
 
-
-
 class StripePaymentController extends Controller
 
-
 {
-
     public function stripe()
     {
-        return view('stripe');  // Return the Stripe payment view
+        return view('stripe');
     }
-
     public function stripePost(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
         $charge = Charge::create([
-            'amount' => 1000, // Amount in cents
+            'amount' => 1000, 
             'currency' => 'usd',
             'description' => 'Test payment',
             'source' => $request->stripeToken,
         ]);
-
-        // Store transaction in your database or process it further
-
         return back()->with('success', 'Payment successful!');
     }
 }

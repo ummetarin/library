@@ -9,38 +9,36 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all(); // Fetch all services
+        $services = Service::all(); 
         return view('services.index', compact('services'));
     }
     public function all()
     {
-        $services = Service::all(); // Fetch all services
+        $services = Service::all(); 
         return view('services.all', compact('services'));
     }
     
   
     public function create()
     {
-        return view('services.create'); // Return the form view
+        return view('services.create');
     }
 
     public function store(Request $request)
 {
-    // Validate incoming data
+
     $request->validate([
         'name' => 'required',
         'description' => 'required',
         'image' => 'required',
     ]);
 
-    // Store the data correctly
     Service::create([
         'name' => $request->name,
         'description' => $request->description,
         'image' => $request->image,
     ]);
 
-    // Redirect with success message
     return redirect()->route('services.index')->with('success', 'Service added successfully!');
 }
 

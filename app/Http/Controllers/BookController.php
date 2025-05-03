@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
@@ -30,24 +28,17 @@ class Bookcontroller extends Controller
         'image' => 'required',
         'quantity' => 'required|integer'
     ]);
-
-    // Add user_id to the data
     $data = $request->all();
-    $data['user_id'] = auth()->id(); // Assuming you're using Laravel's authentication system
-
-    // Create the book record with the user_id
+    $data['user_id'] = auth()->id();
     Book::create($data);
-
     return redirect()->route('books.index')->with('success', 'Book added successfully!');
 }
 
-    
     public function edit($id)
     {
         $book = Book::findOrFail($id);
         return view('books.edit', compact('book'));
     }
-
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -74,29 +65,20 @@ class Bookcontroller extends Controller
     public function allBooks(Request $request)
 {
     $query = Book::query();
-    
-    // Get distinct categories for the dropdown
     $categories = Book::select('category')->distinct()->pluck('category');
-
-    // Check if a category filter is applied
     if ($request->has('category') && !empty($request->category)) {
         $query->where('category', $request->category);
     }
-
     $books = $query->get();
-    
+
     return view('bookdetails.all', compact('books', 'categories'));
 }
 
     public function show($id)
 {
     $book = Book::findOrFail($id);
-    return view('bookdetails.show', compact('book')); // Create 'show.blade.php' for details page
+    return view('bookdetails.show', compact('book')); 
 }
-
-
-
-
 public function buy($id) {
     $book = Book::findOrFail($id);
     return view('bookdetails.buy', compact('book'));
@@ -111,18 +93,14 @@ public function purchase(Request $request, $id) {
     $book = Book::findOrFail($id);
 
     if ($book->quantity > 0) {
-
-        // Decrease the quantity of the book
         $book->quantity -= 1;
         $book->save();
-
-        // Insert into purchased_books, including amount_paid
         DB::table('purchased_books')->insert([
             'book_id' => $book->id,
             'title' => $book->title,
             'price' => $book->price,
             'payment_method' => $request->payment_method,
-            'amount_paid' => $book->price, // Include the price as the amount_paid
+            'amount_paid' => $book->price, 
             'purchased_at' => now()
         ]);
 
@@ -131,9 +109,6 @@ public function purchase(Request $request, $id) {
         return redirect()->route('bookdetails.all')->with('error', 'Sorry, this book is out of stock!');
     }
 }
-
-
-
 public function soldBooks()
 {
     $soldBooks = DB::table('purchased_books')->get();
@@ -180,9 +155,6 @@ public function processBorrow(Request $request, $id) {
         return back()->with('error', 'Sorry, this book is currently out of stock.');
     }
 }
-
-
-// return
 
 public function showReturnForm($id)
 {
@@ -244,8 +216,5 @@ public function myBooks()
     $myBooks = DB::table('borrowed_items')->where('user_id', Auth::id())->get();
     return view('books.my_books', compact('myBooks'));
 }
-
-
-   
 
 }
